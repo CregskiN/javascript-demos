@@ -94,10 +94,11 @@ concat() 数组拼接
 slice() 截取数组，不会改变原数组
 splice() 最强大的数组方法，可删除，可插入，可替换，均改变原数组
 */
-var arr = [1, 2, 3, 4, 5, 6];
-// console.log(arr.slice()); // [0, 1, 5, 20, 15]
-// console.log(arr.slice(1)); // [1, 5, 20, 15] 从下标1复制到最后
-// console.log(arr.slice(1, 3)); // [1, 5] 从下标1复制到3-1
+// var arr = [1, 2, 3, 4, 5, 6];
+// console.log(arr.slice()); // [1, 2, 3, 4, 5, 6]
+// console.log(arr.slice(1)); // [2, 3, 4, 5, 6] 从下标1复制到最后
+// console.log(arr.slice(1, 3)); // [2, 3] 从下标1开始复制到下标3-1处
+// console.log(arr.slice(1, 5)); // [2, 3, 4, 5] 从下标1开始复制到下标5-1
 
 // console.log(arr.splice(2), arr); // 截取并返回前2项 [3, 4, 5, 6], [1, 2]
 // console.log(arr.splice(2, 2), arr); // 截取 [3, 4]， 剩余 [1, 2, 5, 6]
