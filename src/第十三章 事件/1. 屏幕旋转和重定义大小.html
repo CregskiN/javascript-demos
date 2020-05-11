@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .p1 {
+            font-size: 2rem;
+            height: 4rem;
+        }
+
+        .p2 {
+            font-size: 2vw;
+            height: 4vw;
+        }
+    </style>
+
+
+    <title>rem</title>
+</head>
+
+<body>
+    <div style="background-color: aqua;">
+        <p class="p1">2rem
+        <p class="p1">css:</p>></br>
+        <p class="p1">html {font-size: 20px;}</p></br>
+        <p class="p1">p {font-size: 2rem; height: 4rem;}</p></br>
+    </div>
+
+    <div style="background-color: aquamarine;">
+        <p class="p2">2rem
+        <p class="p2">css:</p>></br>
+        <p class="p2">html {font-size: 20px;}</p></br>
+        <p class="p2">p {font-size: 2rem; height: 4rem;}</p></br>
+    </div>
+
+
+    </p>
+
+    <script>
+        window.onload = () => {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 100 + 'px';
+            console.log('onload事件触发了')
+        }
+        window.onorientationchange = () => {
+            console.log(`屏幕旋转 onorientationchange事件触发 screen.width ${screen.width} screen.height ${screen.height}`)
+        }
+        window.onresize = () => {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 100 + 'px';
+            console.log(`屏幕重定义 onresize触发，screen.width ${screen.width} screen.height ${screen.height}`);
+        }
+    </script>
+
+</body>
+
+</html>

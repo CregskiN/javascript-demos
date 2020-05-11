@@ -4,18 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/style.css">
+    <!-- <link rel="stylesheet" href="./src/css/style.css"> -->
     <style>
         body {
             background-color: #eee;
         }
     </style>
-    <title>Document</title>
+    <title>默认的点击事件流</title>
 </head>
 
 <body>
+    <div id="electroniclayer" style="width: 400px;margin: 0 auto;background-color: red;border-radius: 50%;">
+        <text>核外电子</text>
+        <div id="nucleus" style="width: 300px;margin: 0 auto;background-color: yellow;border-radius: 50%;">
+            <text>原子核</text>
+            <div id="protonAndNeutron"
+                style="width: 200px;margin: 0 auto;background-color: aqua;border-radius: 50%;">
+                <text>质子和中子</text>
+            </div>
+        </div>
+    </div>
 
-    <script src="./src/index.js"></script>
+
+    <!-- <script src="./src/index.js"></script> -->
+    <script>
+        window.onload = function () {
+            document.getElementById('electroniclayer').addEventListener('click', electroniclayer, false);
+            document.getElementById('nucleus').addEventListener('click', nucleus, false);
+            document.getElementById('protonAndNeutron').addEventListener('click', protonAndNeutron, false);
+
+        }
+
+
+        function electroniclayer(event) {
+            event.preventDefault();
+            console.log('核外电子');
+        }
+
+        function nucleus(event) {
+            event.preventDefault();
+            console.log('原子核');
+        }
+
+        function protonAndNeutron(event) {
+            event.preventDefault();
+            console.log('质子和中子');
+        }
+
+    </script>
 </body>
 
 </html>
