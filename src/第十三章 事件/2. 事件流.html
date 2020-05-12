@@ -18,8 +18,7 @@
         <text>核外电子</text>
         <div id="nucleus" style="width: 300px;margin: 0 auto;background-color: yellow;border-radius: 50%;">
             <text>原子核</text>
-            <div id="protonAndNeutron"
-                style="width: 200px;margin: 0 auto;background-color: aqua;border-radius: 50%;">
+            <div id="protonAndNeutron" style="width: 200px;margin: 0 auto;background-color: aqua;border-radius: 50%;">
                 <text>质子和中子</text>
             </div>
         </div>
@@ -37,17 +36,21 @@
 
 
         function electroniclayer(event) {
-            event.preventDefault();
+            event.preventDefault(); // 阻断默认行为
+            event.stopPropagation(); // 阻断事件冒泡
+            // event.stopImmediatePropagation(); // 阻断所属element其他事件handler执行
             console.log('核外电子');
         }
 
         function nucleus(event) {
             event.preventDefault();
+            event.stopPropagation();
             console.log('原子核');
         }
 
         function protonAndNeutron(event) {
             event.preventDefault();
+            event.stopPropagation();
             console.log('质子和中子');
         }
 

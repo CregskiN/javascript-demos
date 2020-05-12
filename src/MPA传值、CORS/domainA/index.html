@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="open" style="width:200px;height: 100px;background-color:aqua;">打开子窗口</div>
+
+    <div id="postChild" style="width:200px;height: 100px;background-color:bisque;">传输：hello world! 至子窗口</div>
+
+    <div id="postJsonp" style="width:200px;height: 100px;background-color:blueviolet;">传输jsonp至localhost:3001</div>
+
+    <div id="xmrGET" style="width:200px;height: 100px;background-color:chartreuse;">http GET: ajax to
+        localhost:3001/text/xmr</div>
+    <div id="xmrPOST" style="width:200px;height: 100px;background-color:darkorange;">http POST: ajax to
+        localhost:3001/text/xmr</div>
+    <!-- <div id="xmr">http GET: ajax to localhost:3001/text/xmr</div>
+    <div id="xmr">http GET: ajax to localhost:3001/text/xmr</div>
+    <div id="xmr">http GET: ajax to localhost:3001/text/xmr</div> -->
+
+    <script>
+
+        function addScriptTag(src) {
+            var script = document.createElement('script');
+            script.setAttribute("type", "text/javascript");
+            script.src = src;
+            document.body.appendChild(script);
+        }
+
+        function foo(data) {
+            console.log('jsonp data is', data);
+        };
+
+        document.cookie = 'name=cregskin'; // 设置cookie
+        let child = null;
+
+        const openElem = document.getElementById('open');
+        openElem.addEventListener('click', function () {
+            child = window.open('http://localhost:3001/child.html', 'title');
+        })
+
+        const postChildElem = document.getElementById('postChild');
+        postChildElem.addEventListener('click', function () {
+            child.postMessage('hello world!', 'http://localhost:3001/child.html');
+        })
+
+        const postJsonpElem = document.getElementById('postJsonp');
+        postJsonpElem.addEventListener('click', function (event) {
+            event.stopPropagation();
+            addScriptTag('http://localhost:3001/test/jsonp?callback=foo');
+        }, false);
+
+        function ajax(options) {
+            const { method, url, data } = options;
+            const xmr = new XMLHttpRequest();
+            xmr.open(method, url, false); // 是否异步
+            xmr.send(data || null);
+
+            const { status } = xmr;
+            if ((status >= 200 && statuc < 300) || status === 304) {
+                const { responseText, responseType, responseXML, responseURL } = xmr;
+                console.log('responseText', responseText);
+                console.log('responseType', responseType);
+                console.log('responseXML', responseXML);
+                console.log('responseURL', responseURL);
+
+            }
+        }
+
+
+        const xmrGETElem = document.getElementById('xmrGET');
+        xmrGETElem.addEventListener('click', function (event) {
+            ajax({
+                method: 'get',
+                url: 'http://localhost:3001/test/xmr',
+                data: {
+                    msg: 'GET: hello world!'
+                }
+            })
+        }, false);
+
+        const xmrPOSTElem = document.getElementById('xmrPOST')
+        xmrPOSTElem.addEventListener('click', function () {
+            ajax({
+                method: 'post',
+                url: 'http://localhost:3001/test/xmr',
+                data: {
+                    msg: 'POST: hello world!'
+                }
+            })
+        }, false);
+    </script>
+</body>
+
+</html>
