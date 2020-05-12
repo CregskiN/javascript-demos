@@ -26,9 +26,9 @@ router.get('/test/xmr', async (ctx, next) => {
 
 router.post('/test/xmr', async (ctx, next) => {
     console.log(ctx.data);
-    ctx.set({
-        'Access-Control-Allow-Origin': 'http://localhost:3000'
-    })
+    // ctx.set({
+    //     'Access-Control-Allow-Origin': 'http://localhost:3000'
+    // })
     ctx.body = {
         success: true,
         msg: 'POST: roger that. hello world too!'

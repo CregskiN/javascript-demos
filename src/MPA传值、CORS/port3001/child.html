@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子窗口</title>
+</head>
+
+<body>
+    <div>子窗口</div>
+
+    <div id="form">
+        <input  placeholder="账号" value="" type="text" />
+        <input placeholder="密码" value="" type="text" />
+        <button onclick="formSubmit()">提交</button>
+    </div>
+
+
+    <script>
+
+        const formElem = document.getElementById('form');
+        window.addEventListener('message', function (msg) {
+            if (msg.data.type === 'form') {
+                good
+                var inputs = document.getElementsByTagName('input');
+                inputs[0].value = msg.data.account;
+                inputs[1].value = msg.data.password;
+
+                // bad
+                // var inputs = document.getElementsByTagName('input');
+                // inputs[0].setAttribute('value', msg.data.account);
+                // inputs[1].setAttribute('value', msg.data.password);
+            }
+        })
+
+        function formSubmit() {
+            var inputs = document.getElementsByTagName('input');
+            var account = inputs[0].value;
+            var password = inputs[1].value;
+            window.opener.postMessage({
+                account,
+                password,
+                type: 'form'
+            }, 'http://localhost:3000/index.html');
+        }
+    </script>
+</body>
+
+</html>
