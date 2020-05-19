@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 默认width:300px height:150px; -->
+    <canvas id="canvas"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext("2d");
+
+        // 填充红色矩形
+        // context.fillStyle = '#ff0000';
+        // context.fillRect(10, 10, 50, 50);
+
+        // 填充透明度0.5的蓝色矩形
+        // context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+        // context.fillRect(30, 30, 50, 50);
+
+
+        
+        // 描边红色矩形，线宽为5px
+        // context.strokeStyle = '#ff0000';
+        // context.lineWidth = '5';
+        // context.strokeRect(10, 10, 50, 50);
+
+        // 描边透明度0.5的蓝色矩形，线宽为10px
+        // context.strokeStyle = 'rgba(0,0,255,0.5)'
+        // context.lineWidth = '10';
+        // context.strokeRect(30, 30, 50, 50);
+
+
+
+        // 填充红色矩形
+        context.fillStyle = '#ff0000';
+        context.fillRect(10, 10, 50, 50);
+
+        // 填充透明度0.5的蓝色矩形
+        context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+        context.fillRect(30, 30, 50, 50);
+
+        // 清除重叠部分10*10的矩形
+        context.clearRect(40,40,10,10);
+
+    </script>
+</body>
+
+</html>

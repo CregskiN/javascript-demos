@@ -13,7 +13,6 @@ for (var i = 1; i <= 5; i++) {
         }, i * 1000)
     })(i)
 }
-console.log('ss')
 
 setTimeout第三个参数
 for (var i = 1; i <= 5; i++) {

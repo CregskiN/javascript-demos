@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 默认width:300px height:150px; -->
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext("2d");
+
+        /**
+         * 绘制路径
+         *      beginPath() 开始绘制
+         * 
+         *      1. arc(x, y, redius, startAngle, endAngle, counterclockwise: boolean): 
+         *  以(x, y)为圆心，绘制一条弧线，半径radius，从起始角度startAngle开始，到结束角度endAngle结束，counterclockwise ? 逆时针 : 顺时针
+         * 
+         *      2. arcTo(x1, y1, x2, y2, radius):
+         *  从上一点开始绘制一条弧弧线，到(x2, y2)为止，并且以半径radius穿过(x1, y1)
+         * 
+         *      3. bezierCurveTo(c1x, c1y, c2x, c2y, x, y):
+         *  从上一点开始绘制一条曲线，到(x, y)为止，并且(c1x, c1y)和(c2x, c2y)为控制点
+         * 
+         *      4. lineTo(x, y):
+         *  从上一点开始绘制一条直线，到(x, y)为止
+         * 
+         *      5. moveTo(x, y):
+         *  将绘图游标移动到(x, y)，不画线
+         * 
+         *      6. quadraticCurveTo(cx, cy, x, y):
+         *  从上一点开始绘制一条二次曲线，到(x, y)为止，并且以(cx, cy)为控制点
+         * 
+         *      7. rect(x, y, width, height):
+         *  从点(x, y)开始，绘制一个矩形，宽度width，高度height，
+         * 
+         *      closePath() 结束绘制
+         */
+
+        context.beginPath();
+
+        // 绘制外圆
+        context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+
+        // 绘制内圆
+        context.moveTo(194, 100);
+        context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+
+        // 绘制分针
+        context.moveTo(100, 100);
+        context.lineTo(100, 15);
+
+        // 绘制时针
+        context.moveTo(100, 100);
+        context.lineTo(35, 100);
+
+        // 描边路径
+        context.strokeStyle = 'rgba(166, 226, 46)'; // 描边颜色
+        context.fillStyle = 'rgba(102, 217, 239,0.5)'; // 填充颜色
+        context.stroke(); // 开始描边
+        context.fill() // 开始填充
+    </script>
+</body>
+
+</html>

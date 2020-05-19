@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 默认width:300px height:150px; -->
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext("2d");
+
+        /**
+         *      fillText(text: string, x: number, y:number, maxWidth: number)
+         * 
+         *      strokeText() 
+         * 使用strokeStyle的属性为文本描边    
+         *  
+         *      measureText(text:string)
+         * 测量文本text的宽度
+         * 
+         *      font: 
+         * 文本样式、大小、字体，用CSS中指定的字体格式来指定
+         * 
+         *      textAlign:
+         * 文本对齐方式。 可选值："start" "end" "left" "right" "center"。
+         * 建议使用"start" "end" ，不用";"left" "reight"
+         * 
+         *      textBaseLine:
+         * 表示文本的基线。可选值:"top" "hanging" "middle" "alphabetic" "ideographic" "bottom"
+         * 
+         */
+
+        // context.beginPath();
+
+        // // 绘制外圆
+        // context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+
+        // // 绘制内圆
+        // context.moveTo(194, 100);
+        // context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+
+        // // 绘制分针
+        // context.moveTo(100, 100);
+        // context.lineTo(100, 15);
+
+        // // 绘制时针
+        // context.moveTo(100, 100);
+        // context.lineTo(35, 100);
+
+        // // 描边路径
+        // context.strokeStyle = 'rgba(166, 226, 46)'; // 描边颜色
+        // // context.fillStyle = 'rgba(102, 217, 239,0.5)'; // 填充颜色
+
+        // context.stroke(); // 开始描边
+        // // context.fill() // 开始填充
+        // // context.closePath();
+
+        // context.font = 'bold 14px Arial';
+        // context.textAlign = 'center';
+        // context.textBaseline = 'middle';
+
+        // // 字体填充
+        // // context.fillText('12', 100, 20);
+
+        // // 字体描边
+        // context.strokeStyle = 'rgba(102, 217, 239)';
+        // context.strokeText('12', 100, 20);
+
+        var fontSize = 100;
+        context.font = fontSize + 'px Arial';
+
+        while (context.measureText('Hello World!').width > 140) {
+            fontSize--;
+            context.font = fontSize + 'px Arial';
+        }
+
+        context.fillText('Hello World!', 10, 10);
+        context.fillText('Font size is ' + fontSize + 'px', 10, 50);
+
+    </script>
+</body>
+
+</html>
