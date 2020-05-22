@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="img" src="../image.jpg" style="width:300px;height:200px;" />
+    <!-- 默认width:300px height:150px; -->
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        /* 
+                context.drawImage(img,x,y);
+            在画布上定位(x, y)
+
+                context.drawImage(img,x,y,width,height);
+            在画布上定位图像，并规定图像的宽度和高度
+
+                context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+            从(sx, sy)开始剪切宽为swidth，高为sheight的图像。在(x, y)重绘宽为width，高为height
+        */
+        window.onload = function () {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext("2d");
+
+            /**
+             *  shadowColor: 用CSS颜色格式表示阴影颜色，默认为黑色 
+             *  shadowOffsetX: 形状或路径x轴方向的阴影偏移量，默认为0
+             *  shadowOffsetY: 形状或路径x轴方向的阴影偏移量，默认为0
+             *  shadowBlur: 模糊的像素数，默认0，即不模糊
+             * 
+             */
+
+            context.shadowColor = 'rgba(102, 217, 239, 0.5)'
+            context.shadowOffsetX = 5
+            context.shadowOffsetY = 5
+            context.shadowBlur = 4
+
+            context.fillStyle = '#f00';
+            context.fillRect(10, 10, 50, 50);
+            context.fillStyle = 'rgba(0, 0, 255, 1)';
+            context.fillRect(30, 30, 50, 50);
+        }
+
+
+    </script>
+</body>
+
+</html>

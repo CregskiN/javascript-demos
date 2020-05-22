@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        /* 
+            context.createLinearGradient(startX, startY, endX, endY)	创建线性渐变（用在画布内容上）
+
+            context.createPattern(image, "repeat" || "repeat-x" | "repeat-y" || "no-repeat");	在指定的方向上重复指定的元素
+
+            context.createRadialGradient(startX, startY, radius_1, endX, endY, radius_2);	创建放射状/环形的渐变（用在画布内容上）
+
+            gradient.addColorStop(stop, color);	规定渐变对象中的颜色和停止位置 
+        */
+
+        var gradient = context.createLinearGradient(100, 100, 100, 200);
+        // gradient.addColorStop(0, 'pink');
+        // gradient.addColorStop(1, 'white');
+
+        gradient.addColorStop(0, 'rgb(255, 0, 0)');
+        gradient.addColorStop(0.2, 'rgb(255, 165, 0)');
+        gradient.addColorStop(0.3, 'rgb(255, 255, 0)');
+        gradient.addColorStop(0.5, 'rgb(0, 255, 0)');
+        gradient.addColorStop(0.7, 'rgb(0, 127, 255)');
+        gradient.addColorStop(0.9, 'rgb(0, 0, 255)');
+        gradient.addColorStop(1, 'rgb(139, 0, 255)');
+
+        context.fillStyle = gradient;
+        context.fillRect(100, 100, 50, 100);
+    </script>
+</body>
+
+</html>

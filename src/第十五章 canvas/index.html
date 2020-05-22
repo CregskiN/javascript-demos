@@ -12,38 +12,22 @@
 </head>
 
 <body>
+    <img id="img" src="../image.jpg" style="width:300px;height:200px;" />
     <!-- 默认width:300px height:150px; -->
     <canvas id="canvas" width="600" height="600"></canvas>
 
     <script>
-        var canvas = document.getElementById('canvas');
-        var context = canvas.getContext("2d");
+        window.onload = function () {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext("2d");
 
-        /**
-         *      save()
-         *  将目前的fillStyle、strokeStyle、translate等入栈
-         * 
-         *      restore()
-         *  将栈顶的fillStyle、strokeStyle等弹出
-         * 
-         */
+            /**
+             * 
+             */ 
+            
 
+        }
 
-        context.fillStyle = 'red';
-        context.save();
-
-        context.fillStyle = 'yellow';
-        context.translate(100, 100);
-        context.save();
-
-        context.fillStyle = 'blue';
-        context.fillRect(0, 0, 100, 200);
-
-        context.restore();
-        context.fillRect(10, 10, 100, 200);
-
-        context.restore();
-        context.fillRect(0, 0, 100, 200)
 
     </script>
 </body>

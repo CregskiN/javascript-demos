@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        /**
+          *     lineCap = 'butt' || 'round' || 'square'  设置或返回线条的结束端点样式
+          * butt: 默认，向线条末端添加平直边缘
+          * round: 向线条的每个末端添加圆形线帽。
+          * square: 向线条的每个末端添加正方形线帽。
+          * 
+          *     lineJoin = 'bevel' || 'round' || 'miter'	设置或返回两条线相交时，所创建的拐角类型
+          * bevel: 创建斜角
+          * round: 创建圆角
+          * miter: 默认，创建尖角
+          * 
+          *     lineWidth = number	设置或返回当前的线条宽度
+          * 
+          *     miterLimit = number	设置或返回最大斜接长度，如果斜角超过miterLimit，以lineJoin='bevel'展示
+          * 
+         */
+
+
+        context.beginPath();
+        context.lineCap = 'round';
+        context.lineJoin = 'bevel';
+        context.lineWidth = 10;
+
+        context.moveTo(20, 10);
+        context.lineTo(150, 100);
+
+        context.moveTo(150, 100);
+        context.lineTo(150, 300);
+        context.strokeStyle = 'rgba(255, 255, 255, 1)';
+        context.stroke();
+    </script>
+</body>
+
+</html>

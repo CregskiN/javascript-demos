@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="img" src="../image.jpg" style="width:300px;height:200px;" />
+    <!-- 默认width:300px height:150px; -->
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        /* 
+                context.drawImage(img,x,y);
+            在画布上定位(x, y)
+
+                context.drawImage(img,x,y,width,height);
+            在画布上定位图像，并规定图像的宽度和高度
+
+                context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+            从(sx, sy)开始剪切宽为swidth，高为sheight的图像。在(x, y)重绘宽为width，高为height
+        */
+        window.onload = function () {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext("2d");
+
+            var img = document.getElementById("img");
+            context.drawImage(img, 10, 10, 300, 200);
+
+            context.drawImage(img, 10, 10, 90, 60, 200, 200, 60, 40);
+        }
+
+
+    </script>
+</body>
+
+</html>

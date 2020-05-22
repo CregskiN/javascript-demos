@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        /**
+         *  shadowColor: 用CSS颜色格式表示阴影颜色，默认为黑色 
+         *  shadowOffsetX: 形状或路径x轴方向的阴影偏移量，默认为0
+         *  shadowOffsetY: 形状或路径x轴方向的阴影偏移量，默认为0
+         *  shadowBlur: 模糊的像素数，默认0，即不模糊
+         */
+
+        context.arc(50, 50, 30, Math.PI * 1, false);
+        context.lineWidth = 5;
+        context.shadowColor = 'blue';
+        context.shadowOffsetX = 10;
+        context.shadowOffsetY = 10;
+        context.shadowBlue = 10;
+
+        context.strokeStyle = 'rgba(255, 255, 255, 1)';
+        context.stroke();
+    </script>
+</body>
+
+</html>

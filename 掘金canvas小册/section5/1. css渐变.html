@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, #000000 0%, #5788fe 100%) no-repeat;
+        }
+
+        .image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .filter {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #fe5757;
+            animation: colorChange 10s ease-in-out infinite;
+            animation-fill-mode: both;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes colorChange {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: .6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="filter">
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <img class="image" src="../img.png" >
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        /*
+                context.drawImage(img,x,y);
+            在画布上定位(x, y)
+
+                context.drawImage(img,x,y,width,height);
+            在画布上定位图像，并规定图像的宽度和高度
+
+                context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+            从(sx, sy)开始剪切宽为swidth，高为sheight的图像。在(x, y)重绘宽为width，高为height
+        */
+
+    </script>
+</body>
+
+</html>

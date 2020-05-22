@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.strokeStyle = 'white';
+        context.strokeRect(5, 5, 50, 25);
+
+        context.scale(2, 2);
+        context.strokeRect(5, 5, 50, 25);
+
+        context.rotate(30 * Math.PI / 180); // 从此之后的图形顺时针旋转30度
+        context.scale(2, 2);
+        context.strokeRect(5, 5, 50, 25);
+        /* 
+            context.scale()是叠加的
+        */
+    </script>
+</body>
+
+</html>
