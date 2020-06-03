@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="open" style="width:200px;height: 100px;background-color:aqua;">打开子窗口</div>
+
+    <div id="postChild" style="width:200px;height: 100px;background-color:bisque;">传输：hello world! 至子窗口</div>
+
+    <div id="postJsonp" style="width:200px;height: 100px;background-color:blueviolet;">传输jsonp至localhost:3001</div>
+
+    <div id="xmrGET" style="width:200px;height: 100px;background-color:chartreuse;">http GET: ajax to
+        localhost:3001/text/xmr?helloworld</div>
+
+    <div id="xmrPNG" style="width:200px;height: 100px;background-color:chartreuse;">http GET: ajax to
+        localhost:3000/example.png</div>
+
+    <div id="xmrPOST" style="width:200px;height: 100px;background-color:darkorange;">http POST: ajax to
+        localhost:3001/text/xmr</div>
+
+    <div id="form">
+        <input id="account" placeholder="账号" value="" type="text" />
+        <input placeholder="密码" value="" type="text" />
+        <button onclick="formSubmit()">提交</button>
+    </div>
+
+
+    <script type="text/javascript" src="/ajax.js"></script>
+    <script type="text/javascript" src="/postMessage.js"></script>
+    <script type="text/javascript" src="/index.js"></script>
+</body>
+
+</html>

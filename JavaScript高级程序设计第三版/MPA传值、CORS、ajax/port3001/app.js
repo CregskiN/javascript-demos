@@ -7,16 +7,28 @@ const static = require('koa-static');
 const app = new Koa()
 
 
+
+app.use(async (ctx, next) => {
+    ctx.set({
+        'Access-Control-Allow-Origin': 'http://localhost:3000', // 允许源
+        'Access-Control-Allow-Credentials': true, // 是否可携带cookie
+        // 'Access-Control-Expose-Headers':''
+        'Access-Control-Allow-Methods': 'GET,POST,PUT',
+        // 'Content-Type': 'application/json',
+    })
+    next();
+})
+
+app.use(parser());
+app.use(static('./'));
+app.use(jsonp());
+
 const router = Router();
 
 router.get('/test/xmr', async (ctx, next) => {
-    console.log(ctx.data);
-    ctx.set({
-        'Access-Control-Allow-Origin': 'http://localhost:3000', // 允许源
-        'Access-Control-Allow-Credentials':true, // 是否可携带cookie
-        // 'Access-Control-Expose-Headers':''
-        'Access-Control-Allow-Methods':'GET,POST,PUT'
-    })
+    console.log(ctx.request);
+
+
     ctx.body = {
         success: true,
         msg: 'GET: roger that. hello world too!'
@@ -26,9 +38,9 @@ router.get('/test/xmr', async (ctx, next) => {
 
 router.post('/test/xmr', async (ctx, next) => {
     console.log(ctx.data);
-    // ctx.set({
-    //     'Access-Control-Allow-Origin': 'http://localhost:3000'
-    // })
+    ctx.set({
+        'Access-Control-Allow-Origin': 'http://localhost:3000'
+    })
     ctx.body = {
         success: true,
         msg: 'POST: roger that. hello world too!'
@@ -40,6 +52,7 @@ router.post('/test/xmr', async (ctx, next) => {
  * jsonp 测试
  */
 router.get('/test/jsonp', async (ctx, next) => {
+
     ctx.body = {
         success: true,
         data: {
@@ -53,9 +66,7 @@ router.get('/test/jsonp', async (ctx, next) => {
     };
 });
 
-app.use(parser());
-app.use(static('./'));
-app.use(jsonp());
+
 
 
 

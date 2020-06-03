@@ -11,28 +11,26 @@
     <div>子窗口</div>
 
     <div id="form">
-        <input  placeholder="账号" value="" type="text" />
+        <input placeholder="账号" value="" type="text" />
         <input placeholder="密码" value="" type="text" />
         <button onclick="formSubmit()">提交</button>
     </div>
 
 
     <script>
+        window.onload = () => {
+            const formElem = document.getElementById('form');
+            window.addEventListener('message', function (msg) {
+                if (msg.data.type === 'form') {
+                    var inputs = document.getElementsByTagName('input');
+                    inputs[0].value = msg.data.account;
+                    inputs[1].value = msg.data.password;
+                    return;
+                }
+                console.log(msg.data);
+            })
+        }
 
-        const formElem = document.getElementById('form');
-        window.addEventListener('message', function (msg) {
-            if (msg.data.type === 'form') {
-                good
-                var inputs = document.getElementsByTagName('input');
-                inputs[0].value = msg.data.account;
-                inputs[1].value = msg.data.password;
-
-                // bad
-                // var inputs = document.getElementsByTagName('input');
-                // inputs[0].setAttribute('value', msg.data.account);
-                // inputs[1].setAttribute('value', msg.data.password);
-            }
-        })
 
         function formSubmit() {
             var inputs = document.getElementsByTagName('input');
