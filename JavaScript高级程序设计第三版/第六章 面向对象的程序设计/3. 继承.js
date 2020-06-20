@@ -4,26 +4,46 @@
     2. 实现继承，直接继承实际方法
 */
 /* 1. 原型链：让原型对象直接指向一个实例 */
-// function SuperType() {
-//     this.property = true;
-// }
+function Person(friends) {
+    this.friends = friends == null ? [] : friends;
+}
+Person.prototype.sayFriends = function () {
+    console.log(this.friends);
+}
 
-// SuperType.prototype.getSuperValue = function () {
-//     return this.property;
-// }
 
-// function SubType() {
-//     this.subproperty = false;
-// }
-// // 继承了SuperType
-// SubType.prototype = new SuperType();
+// 无法向父类构造函数传递参数，第2点未达成
+function Man(name, age, friends) {
+    this.name = name;
+    this.age = age;
+}
 
-// SubType.prototype.getSubValue = function () {
-//     return this.subproperty;
-// }
+// 原型链继承
+Man.prototype = new Person();
 
-// var instance = new SubType();
-// console.log('实现继承，对照组', instance);
+Man.prototype.sayName = function () {
+    console.log(this.name)
+}
+Man.prototype.sayAge = function () {
+    console.log(this.age);
+}
+
+
+var xialuo = new Man('xialuo', 20, ['qiuya']);
+var yuanhua = new Man('yuanhua');
+
+// friends被共享，第3点未达成
+console.log(xialuo.friends); // []
+console.log(yuanhua.friends); // []
+xialuo.friends.push('teacherWang');
+console.log(xialuo.friends); // ['teacherWang']
+console.log(yuanhua.friends); // ['teacherWang']
+
+// xialuo、yuanhua是Man也是Person的实例，第4点达成
+console.log(xialuo instanceof Man); // true
+console.log(xialuo instanceof Person); // true
+
+console.log(xialuo.__proto__.constructor); // Person
 
 /* 
 SubType {subproperty: false}
@@ -129,36 +149,43 @@ SubType3 {subproperty: false}
 */
 
 /* 5. 组合继承 */
-// function SuperType7(name) {
-//     this.name = name;
-//     this.colors = ['red', 'blue', 'green'];
-// }
-// SuperType7.prototype.sayName = function () {
-//     console.log(this.name);
-// }
+function Person(name, friends) {
+    this.name = name;
+    this.friends = friends;
+}
+Person.prototype.sayName = function () {
+    console.log(this.name);
+}
 
-// function SubType7(name, age) {
-//     // 继承属性
-//     SuperType7.call(this, name); // 借用构造函数
-//     this.age = age;
-// }
+// 子类属性处理
+function Man(name, age, friends) {
+    // 子类继承父类属性
+    Person.call(this, name, friends); // 借用构造函数
+    // 子类生成自有属性
+    this.age = age;
+}
 
-// // 继承方法(原型链模式)
-// SubType7.prototype = new SuperType7();
-// SubType7.prototype.constructor = SubType7;
-// SubType7.prototype.sayAge = function () {
-//     console.log(this.age);
-// }
-// var instance7_1 = new SubType7('CregskiN', 20);
-// instance7_1.colors.push('black');
-// console.log(instance7_1.colors); // ["red", "blue", "green", "black"]
-// instance7_1.sayName(); // 'CregskiN'
-// instance7_1.sayAge(); // 20
+// 子类方法处理
+Man.prototype = new Person(); // 原型链模式，继承父类属性
+Man.prototype.constructor = Man; // lint: 修复因原型链模式改变的子类构造函数（不然会变成Person）
+// 子类自有方法
+Man.prototype.sayAge = function () {
+    console.log(this.age);
+}
 
-// var instance7_2 = new SubType7('Cre', 30);
-// console.log(instance7_2.colors); // ["red", "blue", "green"]
-// instance7_2.sayName(); // 'Cre'
-// instance7_2.sayAge(); // 30
+var mike = new Man('mike', 20, []);
+mike.friends.push('a'); // ['a']
+console.log(mike.friends);
+mike.sayName(); // 'mike'
+mike.sayAge(); // 20
+
+var bob = new Man('bob', 30, []);
+console.log(bob.friends); // []
+bob.sayName(); // 'bob'
+bob.sayAge(); // 30
+
+console.log(bob.sayName === mike.__proto__.sayName); // true // 实现父类上函数的复用
+
 
 /* 组合模式 = 原型链模式 + 构造函数模式，最常用 */
 
