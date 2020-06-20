@@ -100,8 +100,8 @@ splice() 最强大的数组方法，可删除，可插入，可替换，均改�
 // console.log(arr.slice(1, 3)); // [2, 3] 从下标1开始复制到下标3-1处
 // console.log(arr.slice(1, 5)); // [2, 3, 4, 5] 从下标1开始复制到下标5-1
 
-// console.log(arr.splice(2), arr); // 截取并返回前2项 [3, 4, 5, 6], [1, 2]
-// console.log(arr.splice(2, 2), arr); // 截取 [3, 4]， 剩余 [1, 2, 5, 6]
+// console.log(arr.splice(2), arr); // 从下标2开始到最后截取并返回，原数组改变
+// console.log(arr.splice(2, 2), arr); // 从下标2开始2个元素截取并返回，原数组改变
 // console.log(arr.splice(1, 1, '插入1', '插入2'), arr); // [2]， [1, "插入1", "插入2", 3, 4, 5, 6]
 
 /* 位置方法

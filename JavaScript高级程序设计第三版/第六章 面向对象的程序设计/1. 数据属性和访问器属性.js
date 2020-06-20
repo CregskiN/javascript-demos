@@ -1,4 +1,3 @@
-'use strict'
 /* 对象的属性 */
 /* 1. 数据属性
     [[Configurable]]：属性是否可配置，即delete属性，或修改为访问器属性。默认为true
@@ -85,25 +84,57 @@
 */
 const book = {};
 Object.defineProperties(book, {
-    _year: {
-        value: 2004
+  _year: {
+    value: 2004,
+  },
+  edition: {
+    value: 1,
+  },
+  year: {
+    get: function () {
+      return this._year;
     },
-    edition: {
-        value: 1
+    set: function (newValue) {
+      if (newValue > 2004) {
+        this._year = newValue;
+        this.edition += newValue - 2004;
+      }
     },
-    year: {
-        get: function () {
-            return this._year;
-        },
-        set: function (newValue) {
-            if (newValue > 2004) {
-                this._year = newValue;
-                this.edition += newValue - 2004;
-            }
-        }
-    }
+  },
 });
 /* 读取数据属性 Object.getOwnPropertyDescriptor(o, property) */
-var descriptor = Object.getOwnPropertyDescriptor(book, '_year');
+var descriptor = Object.getOwnPropertyDescriptor(book, "_year");
 console.log(descriptor); // {value: 2004, writable: false, enumerable: false, configurable: false}
 
+var person = {};
+Object.defineProperties(person, {
+  name: {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: "cregskin",
+  },
+  age: {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: 20,
+    get: function () {
+      return this.value;
+    },
+    set: function (age) {
+      if (age < 1) {
+        alert("您填写的年龄有明显错误");
+        console.error("error age", age);
+      } else {
+        this.value = age;
+      }
+    },
+  },
+  gender: {
+    configurable: false,
+    enumerable: true,
+    writable: false,
+    value: 20,
+  },
+});
