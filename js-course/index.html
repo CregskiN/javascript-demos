@@ -10,6 +10,24 @@
         p {
             background-color: yellow;
         }
+
+        #div2 {
+            border: 1px solid #000;
+            width: 200px;
+            height: 200px;
+        }
+
+        #div3 {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+        }
+
+        #div4 {
+            width: 100px;
+            height: 50px;
+            background-color: aqua;
+        }
     </style>
 </head>
 
@@ -24,12 +42,26 @@
     </div>
 
     <button id="btn">click</button>
-    <script src="./index.js"></script>
 
     <div>
         <input id="file" type="file">
         <button id="upload">确定上传</button>
     </div>
+
+    <div id="div2" draggable="true">
+
+    </div>
+
+    <div id="div3">
+        setTimeout (width+3)/16.7s
+    </div>
+
+    <div id="div4">
+        requestAnimationFrame
+    </div>
+
+
+
     <script src="./ajax.js"></script>
     <script src="./index.js"></script>
 </body>
