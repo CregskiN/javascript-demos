@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #root {
+            position: relative;
+            left: 0;
+            top: 0;
+
+            width: 100vw;
+            height: 100vh;
+            background-color: yellow;
+        }
+
+        .item-b {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <div id="item-b" class="item-b">B</div>
+    </div>
+    <script>
+        bindItemB();
+        bindRootElem();
+
+        function bindItemB() {
+            const itemB = document.getElementById('item-b');
+            itemB.addEventListener('touchstart', (e) => {
+                itemB.style.display = 'none';
+                console.log('touchstart b', e.target.id);
+                
+            })
+
+            itemB.addEventListener('touchmove', () => {
+                console.log('touchmove b');
+
+            })
+
+            itemB.addEventListener('touchend', (e) => {
+                console.log('touchend b', e.target);
+
+            })
+
+            itemB.addEventListener('touchcancel', () => {
+                console.log('touchcancel b');
+
+            })
+        }
+
+
+
+        function bindRootElem() {
+            const root = document.getElementById('root');
+
+            root.addEventListener('click', (e) => {
+                console.log('click root', e.target);
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>

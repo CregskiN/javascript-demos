@@ -116,33 +116,33 @@ function ajax(options) {
     xhr.open(method, finalURL, true); // 是否异步
 
     // 异步模式下的响应
-    // xhr.onreadystatechange = () => {
-    //     if (xhr.readyState === 0) {
-    //         // 0: 未初始化。尚未调用open()
-    //         // console.log(xhr);
-    //         consoleXHR(xhr);
-    //     }
-    //     if (xhr.readyState === 1) {
-    //         // 1: 启动但未发送。已open() 未send()
-    //         // console.log(xhr);
-    //         consoleXHR(xhr);
-    //     }
-    //     if (xhr.readyState === 2) {
-    //         // 2: 已发送。已send()
-    //         // console.log(xhr);
-    //         consoleXHR(xhr);
-    //     }
-    //     if (xhr.readyState === 3) {
-    //         // 3: 开始接收。
-    //         // console.log(xhr);
-    //         consoleXHR(xhr);
-    //     }
-    //     if (xhr.readyState === 4) {
-    //         // 4. 已接收全部数据响应。通常只用这个
-    //         // console.log(xhr);
-    //         consoleXHR(xhr);
-    //     }
-    // };
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 0) {
+            // 0: 未初始化。尚未调用open()
+            // console.log(xhr);
+            consoleXHR(xhr);
+        }
+        if (xhr.readyState === 1) {
+            // 1: 启动但未发送。已open() 未send()
+            // console.log(xhr);
+            consoleXHR(xhr);
+        }
+        if (xhr.readyState === 2) {
+            // 2: 已发送。已send()
+            // console.log(xhr);
+            consoleXHR(xhr);
+        }
+        if (xhr.readyState === 3) {
+            // 3: 开始接收。
+            // console.log(xhr);
+            consoleXHR(xhr);
+        }
+        if (xhr.readyState === 4) {
+            // 4. 已接收全部数据响应。通常只用这个
+            // console.log(xhr);
+            consoleXHR(xhr);
+        }
+    };
 
     // IE8开始的超时事件
     xhr.timeout = 1000;
