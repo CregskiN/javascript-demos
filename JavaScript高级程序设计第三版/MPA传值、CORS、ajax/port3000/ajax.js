@@ -71,6 +71,8 @@ function ajax(options) {
             'Content-Type': 'application/json'
         } */
     } = options;
+
+
     const xhr = new XMLHttpRequest();
 
     let finalURL = '';
@@ -91,24 +93,24 @@ function ajax(options) {
      * loadend: 在通信完成或触发error、abort、load事件后触发
      */
 
-    xhr.onloadstart = (e) => {
-        console.log('onloadstart', e)
-    }
-    xhr.onprogress = (e) => {
-        console.log('progress', e)
-    }
-    xhr.onerror = (e) => {
-        console.log('error', e)
-    }
-    xhr.onabort = (e) => {
-        console.log('abort', e)
-    }
-    xhr.onload = (e) => {
-        console.log('load', e)
-    }
-    xhr.onloadend = (e) => {
-        console.log('loadend', e)
-    }
+    // xhr.onloadstart = (e) => {
+    //     console.log('onloadstart', e)
+    // }
+    // xhr.onprogress = (e) => {
+    //     console.log('progress', e)
+    // }
+    // xhr.onerror = (e) => {
+    //     console.log('error', e)
+    // }
+    // xhr.onabort = (e) => {
+    //     console.log('abort', e)
+    // }
+    // xhr.onload = (e) => {
+    //     console.log('load', e)
+    // }
+    // xhr.onloadend = (e) => {
+    //     console.log('loadend', e)
+    // }
 
 
     finalURL = url + finalURL;

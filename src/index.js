@@ -1,14 +1,21 @@
-function foo(a) {
-  var b = a * 2;
-  function bar() {
-    bar.prototype.time = 10;
-    console.log(a, b, c);
-  }
 
-  function fn() {
-    console.log(bar.prototype.time);
-  }
-  fn()
+function add(){
+    console.log('asdas');
 }
 
-foo(2);
+
+
+const obj1 = {
+    name: 'cregskin',
+    age: 20,
+    // type: undefined,
+    hair: null,
+    friends: ['xialuo', 'yuanhua'],
+    // partens: Person.generate,
+};
+
+console.log(JSON.stringify(obj1));
+
+console.log(JSON.parse(JSON.stringify(obj1)));
+
+// lodash
