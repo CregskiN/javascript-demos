@@ -1,21 +1,12 @@
-
-function add(){
-    console.log('asdas');
-}
+const Promise = require('./Promise.js')
 
 
+const p = new Promise((resolve, reject) => {
+    resolve('resolve')
+})
 
-const obj1 = {
-    name: 'cregskin',
-    age: 20,
-    // type: undefined,
-    hair: null,
-    friends: ['xialuo', 'yuanhua'],
-    // partens: Person.generate,
-};
-
-console.log(JSON.stringify(obj1));
-
-console.log(JSON.parse(JSON.stringify(obj1)));
-
-// lodash
+p.then((res) => {
+    console.log('res', res);
+}, (err) => {
+    console.log('err', err);
+})
