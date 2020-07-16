@@ -1,12 +1,4 @@
-const Promise = require('./Promise.js')
+let a = require('./modA.js')
+let b = require('./modB.js')
 
-
-const p = new Promise((resolve, reject) => {
-    resolve('resolve')
-})
-
-p.then((res) => {
-    console.log('res', res);
-}, (err) => {
-    console.log('err', err);
-})
+console.log('c.js-1', '执行完毕', a.done, b.done)
