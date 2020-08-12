@@ -1,5 +1,5 @@
 exports.done = false
-let a = require('./modA.js')
-console.log('modB.js-1', a.done)
+let b = require('./modB.js')
+console.log('modA.js-1', b.done)
 exports.done = true
 console.log('modB.js-2', '执行完毕')

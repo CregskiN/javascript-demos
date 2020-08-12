@@ -1,7 +1,6 @@
 {
   "name": "javascript-demos",
   "version": "1.0.0",
-  "type": "module",
   "description": "1. <script> 的属性 ```js <script src=\"./src/section1/demo1.js\"></script> # 异步加载 <script src=\"./src/section1/demo1.js\" defer=\"defer\"></script> # 延迟加载 ```",
   "main": "./index.js",
   "scripts": {

@@ -56,5 +56,23 @@ window.onload = () => {
             url: 'http://localhost:3000/example.png'
         })
     }, false);
-    
+
+    const syncAjaxElem = document.getElementById('syncAjax');
+    syncAjaxElem.addEventListener('click', () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/search/users?q=cregskin', false);
+        xhr.send(null);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+                console.log('同步ajax响应完成')
+            }
+        }
+    })
+
+    const alertElem = document.getElementById('alert');
+    alertElem.addEventListener('click', () => {
+        alert('点我干啥');
+    })
+
+
 }

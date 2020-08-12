@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="open" style="width:200px;height: 100px;background-color:aqua;">打开子窗口</div>
+    <div onclick="click()" id="open" style="width:200px;height: 100px;background-color:aqua;">打开子窗口</div>
 
     <div id="postChild" style="width:200px;height: 100px;background-color:bisque;">传输：hello world! 至子窗口</div>
 
@@ -23,6 +23,15 @@
     <div id="xmrPOST" style="width:200px;height: 100px;background-color:darkorange;">http POST: ajax to
         localhost:3001/text/xmr</div>
 
+    <div id="syncAjax" style="width:200px;height: 100px;background-color:darkorange;">http POST: ajax to
+        aync ajax
+    </div>
+
+    <div id="alert" style="width:200px;height: 100px;background-color:darkorange;">http POST: ajax to
+        alert
+    </div>
+
+
     <div id="form">
         <input id="account" placeholder="账号" value="" type="text" />
         <input placeholder="密码" value="" type="text" />
@@ -32,7 +41,7 @@
 
     <script type="text/javascript" src="/ajax.js"></script>
     <script type="text/javascript" src="/postMessage.js"></script>
-    <script type="text/javascript" src="/index.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
 </body>
 
 </html>
