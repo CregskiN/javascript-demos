@@ -1,0 +1,21 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "这是一个demo，自用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react ui 库"
+  ],
+  "author": "CregskiN",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.0.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
